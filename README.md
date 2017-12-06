@@ -3,7 +3,7 @@ Project for SAP Orca Hacks 2017
 
 Orcamoji is a sentiment analysis webapp which displays the current emotion of users through analyzing social media posts and slack channel messages.
 
-## Tech Stack
+## Tech Stack - MERN (Mongodb, Express, React, Nodejs)
 ### Front End
 
 * React
@@ -14,7 +14,8 @@ Orcamoji is a sentiment analysis webapp which displays the current emotion of us
 
 ### Back End
 
-* Nodejs
+* Nodejs - Version: 8.9.2
+* npm - Version: 5.5.1
 * Express
 * Mongodb
 
