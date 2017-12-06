@@ -1,4 +1,4 @@
-# Orcamoji
+# Orcamoji :smiley:
 Project for SAP Orca Hacks 2017
 
 Orcamoji is a sentiment analysis webapp which displays the current emotion of users through analyzing social media posts and slack channel messages.
