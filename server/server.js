@@ -11,6 +11,8 @@ import config from '../webpack.config.dev';
 import webpackDevMiddleware from 'webpack-dev-middleware';
 import webpackHotMiddleware from 'webpack-hot-middleware';
 
+var pathToApp = __dirname;
+
 // Initialize the Express App
 const app = new Express();
 
@@ -137,6 +139,16 @@ app.use((req, res, next) => {
       })
       .catch((error) => next(error));
   });
+});
+
+app.get('/HappyFace', function(req, res) {
+  res.json([{
+  	id: 1,
+  	username: "samsepi0l"
+  }, {
+  	id: 2,
+  	username: "D0loresH4ze"
+  }]);
 });
 
 // start app
