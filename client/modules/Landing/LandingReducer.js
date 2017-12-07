@@ -13,9 +13,59 @@ const LandingReducer = (state = initialState, action) => {
         "workspace" : [
           { 
             "channel" : {
-              "currentEmotion": 0.9,
-              "history": [0.8, 0.1, 0.2234],
-              "predictive": [0.432, 0.234, 0.9],
+              "currentEmotion": {
+                "anger": 0.1,
+                "surprise": 0.2,
+                "fear": 0.3,
+                "sadness": 0.3,
+                "joy" :0.1
+              },
+              "history": [
+                  {
+                    "anger": 0.1,
+                    "surprise": 0.2,
+                    "fear": 0.3,
+                    "sadness": 0.3,
+                    "joy" :0.1
+                  }, 
+                  {
+                    "anger": 0.2,
+                    "surprise": 0.1,
+                    "fear": 0.1,
+                    "sadness": 0.3,
+                    "joy" :0.3
+                  },
+                  {
+                    "anger": 0.4,
+                    "surprise": 0.4,
+                    "fear": 0.1,
+                    "sadness": 0.1,
+                    "joy" :0.0
+                  }
+              ],
+              "predictive": [
+                {
+                  "anger": 0.1,
+                  "surprise": 0.2,
+                  "fear": 0.3,
+                  "sadness": 0.3,
+                  "joy" :0.1
+                }, 
+                {
+                  "anger": 0.2,
+                  "surprise": 0.1,
+                  "fear": 0.1,
+                  "sadness": 0.3,
+                  "joy" :0.3
+                },
+                {
+                  "anger": 0.4,
+                  "surprise": 0.4,
+                  "fear": 0.1,
+                  "sadness": 0.1,
+                  "joy" :0.0
+                }
+              ]
             }
           }
         ]
@@ -26,9 +76,59 @@ const LandingReducer = (state = initialState, action) => {
         "workspace" : [
           { 
             "channel" : {
-              "currentEmotion": 0.9,
-              "history": [0.8, 0.1, 0.2234],
-              "predictive": [0.432, 0.234, 0.9],
+              "currentEmotion": {
+                "anger": 0.1,
+                "surprise": 0.2,
+                "fear": 0.3,
+                "sadness": 0.3,
+                "joy" :0.1
+              },
+              "history": [
+                  {
+                    "anger": 0.1,
+                    "surprise": 0.2,
+                    "fear": 0.3,
+                    "sadness": 0.3,
+                    "joy" :0.1
+                  }, 
+                  {
+                    "anger": 0.2,
+                    "surprise": 0.1,
+                    "fear": 0.1,
+                    "sadness": 0.3,
+                    "joy" :0.3
+                  },
+                  {
+                    "anger": 0.4,
+                    "surprise": 0.4,
+                    "fear": 0.1,
+                    "sadness": 0.1,
+                    "joy" :0.0
+                  }
+              ],
+              "predictive": [
+                {
+                  "anger": 0.1,
+                  "surprise": 0.2,
+                  "fear": 0.3,
+                  "sadness": 0.3,
+                  "joy" :0.1
+                }, 
+                {
+                  "anger": 0.2,
+                  "surprise": 0.1,
+                  "fear": 0.1,
+                  "sadness": 0.3,
+                  "joy" :0.3
+                },
+                {
+                  "anger": 0.4,
+                  "surprise": 0.4,
+                  "fear": 0.1,
+                  "sadness": 0.1,
+                  "joy" :0.0
+                }
+              ]
             }
           }
         ]
