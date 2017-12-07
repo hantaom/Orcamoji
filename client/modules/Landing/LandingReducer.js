@@ -10,16 +10,28 @@ const LandingReducer = (state = initialState, action) => {
   switch (action.type) {
     case TEST_DENNIS:
       return {
-        currentEmotion: 0.9,
-        history: [0.8, 0.1, 0.2234],
-        predictive: [0.432, 0.234, 0.9],
+        "workspace" : [
+          { 
+            "channel" : {
+              "currentEmotion": 0.9,
+              "history": [0.8, 0.1, 0.2234],
+              "predictive": [0.432, 0.234, 0.9],
+            }
+          }
+        ]
       };
 
     default:
       return {
-        currentEmotion: 0.9,
-        history: [0.8, 0.1, 0.2234],
-        predictive: [0.432, 0.234, 0.9],
+        "workspace" : [
+          { 
+            "channel" : {
+              "currentEmotion": 0.9,
+              "history": [0.8, 0.1, 0.2234],
+              "predictive": [0.432, 0.234, 0.9],
+            }
+          }
+        ]
       };
   }
 };

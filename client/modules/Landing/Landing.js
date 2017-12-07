@@ -27,13 +27,23 @@ export class Landing extends Component {
     console.log(this);
   }
 
+  renderEmotion() {
+    let currentEmotion = this.props.currentEmotion;
+    if (!currentEmotion) 
+    return(
+      <div>
+
+      </div>
+    )
+  }
+
   render() {
     return (
       <div>
         <div>
           <button onClick={()=>{this.sayHello()}}>Click</button>
           <div className="Dennis">
-
+            {this.renderEmotion()}
           </div>
         </div>
       </div>
@@ -47,9 +57,7 @@ function mapStateToProps(state) {
 // Whatever is returned will show up as props inside BookList
     console.log("landing mapStateToProps is reached", state);
     return {
-      currentEmotion : state.landing.currentEmotion,
-      history : state.landing.history,
-      predictive : state.landing.predictive
+      workspaceEmotion: state.landing
     };
 }
 
