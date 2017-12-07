@@ -1,7 +1,6 @@
 /* eslint-disable global-require */
 import React from 'react';
 import { Route, IndexRoute } from 'react-router';
-import App from './modules/App/App';
 import Landing from './modules/Landing/Landing';
 
 // require.ensure polyfill for node
@@ -28,7 +27,7 @@ export default (
     <IndexRoute
       getComponent={(nextState, cb) => {
         require.ensure([], require => {
-          cb(null, require('./modules/Post/pages/PostListPage/PostListPage').default);
+          cb(null, require('./modules/Landing/LandingPage/LandingPage').default);
         });
       }}
     />

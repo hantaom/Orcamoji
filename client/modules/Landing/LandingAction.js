@@ -5,5 +5,6 @@ export const TEST_DENNIS = 'TEST_DENNIS';
 export function toggleAddPost() {
   return {
     type: TEST_DENNIS,
+    payload: 0.9
   };
 }
