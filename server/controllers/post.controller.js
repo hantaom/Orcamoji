@@ -9,6 +9,23 @@ import sanitizeHtml from 'sanitize-html';
  * @param res
  * @returns void
  */
+
+var RtmClient = require('@slack/client').RtmClient;
+var RTM_EVENTS = require('@slack/client').RTM_EVENTS;
+var CLIENT_EVENTS = require('@slack/client').CLIENT_EVENTS;
+
+var bot_token = 'xoxb-284470865911-RDeyYFnMppEVIEWrCBd2B4A2';
+
+var rtm = new RtmClient(bot_token);
+
+// The client will emit an RTM.AUTHENTICATED event on successful connection, with the `rtm.start` payload
+rtm.on(RTM_EVENTS.MESSAGE, function handleRtmMessage(message) {
+  console.log('Message:', message); //this is no doubt the lamest possible message handler, but you get the idea
+});
+
+
+rtm.start();
+
 export function getPosts(req, res) {
   Post.find().sort('-dateAdded').exec((err, posts) => {
     if (err) {
