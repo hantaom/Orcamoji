@@ -1,16 +1,16 @@
 // Import Actions
-import { TOGGLE_ADD_POST } from './AppActions';
+import { TEST_DENNIS } from './LandingAction';
 
 // Initial State
 const initialState = {
   showAddPost: false,
 };
 
-const AppReducer = (state = initialState, action) => {
+const LandingActions = (state = initialState, action) => {
   switch (action.type) {
-    case TOGGLE_ADD_POST:
+    case TEST_DENNIS:
       return {
-        showAddPost: !state.showAddPost,
+        start: ["happy"],
         test: "hellooooooooooo"
       };
 
@@ -22,7 +22,6 @@ const AppReducer = (state = initialState, action) => {
 /* Selectors */
 
 // Get showAddPost
-export const getShowAddPost = state => state.app.showAddPost;
 
 // Export Reducer
-export default AppReducer;
+export default LandingActions;
