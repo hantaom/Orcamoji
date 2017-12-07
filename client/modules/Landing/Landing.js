@@ -8,7 +8,7 @@ import { bindActionCreators } from 'redux';
 // Import Components
 
 // Import Actions
-import { toggleAddPost } from './LandingAction';
+import { fetchEmotions } from './LandingAction';
 
 export class Landing extends Component {
   constructor(props) {
@@ -19,12 +19,10 @@ export class Landing extends Component {
 
   componentDidMount() {
     this.setState({isMounted: true}); // eslint-disable-line
-    console.log(this);
   }
 
   sayHello() {
-    this.props.toggleAddPost();
-    console.log(this);
+    this.props.fetchEmotions();
   }
 
   renderEmotion() {
@@ -55,7 +53,6 @@ export class Landing extends Component {
 // glue to react and redux
 function mapStateToProps(state) {
 // Whatever is returned will show up as props inside BookList
-    console.log("landing mapStateToProps is reached", state);
     return {
       workspaceEmotion: state.landing
     };
@@ -67,7 +64,7 @@ function mapStateToProps(state) {
 function mapDispatchToProps(dispatch) {
     // Whenever selectBook is called, the result should be passed to all
     // of our reducers
-    return bindActionCreators({toggleAddPost}, dispatch);
+    return bindActionCreators({fetchEmotions}, dispatch);
 }
 
 // Promote BookList from a component to a container - it needs to know

@@ -142,13 +142,69 @@ app.use((req, res, next) => {
 });
 
 app.get('/HappyFace', function(req, res) {
-  res.json([{
-  	id: 1,
-  	username: "samsepi0l"
-  }, {
-  	id: 2,
-  	username: "D0loresH4ze"
-  }]);
+  res.json(
+    {
+        "workspace" : [
+          { 
+            "channel" : {
+              "currentEmotion": {
+                "anger": 0.1,
+                "surprise": 0.2,
+                "fear": 0.3,
+                "sadness": 0.3,
+                "joy" :0.1
+              },
+              "history": [
+                  {
+                    "anger": 0.1,
+                    "surprise": 0.2,
+                    "fear": 0.3,
+                    "sadness": 0.3,
+                    "joy" :0.1
+                  }, 
+                  {
+                    "anger": 0.2,
+                    "surprise": 0.1,
+                    "fear": 0.1,
+                    "sadness": 0.3,
+                    "joy" :0.3
+                  },
+                  {
+                    "anger": 0.4,
+                    "surprise": 0.4,
+                    "fear": 0.1,
+                    "sadness": 0.1,
+                    "joy" :0.0
+                  }
+              ],
+              "predictive": [
+                {
+                  "anger": 0.1,
+                  "surprise": 0.2,
+                  "fear": 0.3,
+                  "sadness": 0.3,
+                  "joy" :0.1
+                }, 
+                {
+                  "anger": 0.2,
+                  "surprise": 0.1,
+                  "fear": 0.1,
+                  "sadness": 0.3,
+                  "joy" :0.3
+                },
+                {
+                  "anger": 0.4,
+                  "surprise": 0.4,
+                  "fear": 0.1,
+                  "sadness": 0.1,
+                  "joy" :0.0
+                }
+              ]
+            }
+          }
+        ]
+      }
+  );
 });
 
 // start app
