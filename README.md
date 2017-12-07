@@ -48,3 +48,6 @@ To start working on an issue,
    
    `git push` or  
    `git push origin dev`  
+
+### Credit
+Emoji Images: https://www.flaticon.com/packs/emoji-3 
