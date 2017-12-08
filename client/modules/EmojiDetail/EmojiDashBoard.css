@@ -20,3 +20,7 @@ p.channelLabel {
 img.dashEmoji {
   margin-bottom: 10px;
 }
+h3.channelLabel {
+	text-align: center;
+	color: #4D394B;
+}

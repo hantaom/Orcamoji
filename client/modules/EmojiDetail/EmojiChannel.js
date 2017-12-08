@@ -90,7 +90,7 @@ class EmojiChannel extends Component {
             <div>
                 <div className="currentEmotionWrapper">
                     <div>
-                        <h4 className={styles['channelTitle']}>{this.props.channel.channelName}</h4>
+                        <h2 className={styles['channelTitle']}>{this.props.channel.channelName}</h2>
                         <div className={styles['otherEmotions'] + ' .col-sm-8' }>
                             {this.getCurrentData(this.props.channel.emotions)}
                         </div>
