@@ -13,7 +13,7 @@ import sanitizeHtml from 'sanitize-html';
 var RtmClient = require('@slack/client').RtmClient;
 var RTM_EVENTS = require('@slack/client').RTM_EVENTS;
 var CLIENT_EVENTS = require('@slack/client').CLIENT_EVENTS;
-var bot_token = 'xoxb-284470865911-RDeyYFnMppEVIEWrCBd2B4A2';
+var bot_token = 'xoxb-284470865911-VS8HhfcatFF0drpkpZBLLH3T';
 var rtm = new RtmClient(bot_token);
 var indico = require('indico.io');
 indico.apiKey =  '5a0f61c144a48a19da1b0a6b2ee4d550';
