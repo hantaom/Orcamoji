@@ -27,8 +27,8 @@
   "author": "Prashant Abhishek <prashant.abhishek7g@gmail.com>, Mayank Chandola <imayankchd@gmail.com>, Sandeep Panda <sandeep@hashnode.com>, Syed Fazle Rahman <fazle@hashnode.com>, Alkshendra Maurya <alkshendra@hashnode.com>",
   "license": "MIT",
   "dependencies": {
-    "axios": "^0.17.1",
     "@slack/client": "^3.14.2",
+    "axios": "^0.17.1",
     "babel-core": "^6.9.1",
     "body-parser": "^1.15.1",
     "compression": "^1.6.2",
@@ -47,6 +47,7 @@
     "react-intl": "^2.1.2",
     "react-redux": "^4.4.5",
     "react-router": "^2.4.1",
+    "react-router-dom": "^4.2.2",
     "redux": "^3.5.2",
     "redux-promise": "^0.5.3",
     "redux-thunk": "^2.1.0",

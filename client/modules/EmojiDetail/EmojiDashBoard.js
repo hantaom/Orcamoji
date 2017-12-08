@@ -18,7 +18,7 @@ class EmojiDashBoard extends Component{
             let channels = workspace[workspaceName];
             channels.forEach((channel) => {
               Object.keys(channel).forEach((channelName) => {
-                let emotions = channel[channelName]
+                let emotions = channel[channelName];
                 channelEmojis.push(
                 <div key= {channelName} onClick={()=> this.props.selectChannel(emotions, workspaceName, channelName)}>
                   <EmojiDetail emotions={emotions.currentEmotion}

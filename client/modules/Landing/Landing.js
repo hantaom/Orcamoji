@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-
-import EmojiDetail from "../EmojiDetail/EmojiDetail"
-import EmojiDashBoard from "../EmojiDetail/EmojiDashBoard"
+import { Provider } from 'react-redux';
+import EmojiDetail from "../EmojiDetail/EmojiDetail";
+import EmojiDashBoard from "../EmojiDetail/EmojiDashBoard";
+import EmojiChannel from "../EmojiDetail/EmojiChannel";
+import { BrowserRouter, Route, Switch} from 'react-router-dom';
 // Import Style
 // import styles from './App.css';
 
@@ -25,21 +27,17 @@ export class Landing extends Component {
 
   render() {
     return (
-      <div>
-        <div>
-          <div className="landingPage">
-            <EmojiDashBoard workspaces={this.props.workspaceEmotion}/>
-          </div>
-        </div>
+      <div className="landingPage">
+        <EmojiDashBoard workspaces={this.props.workspaceEmotion}/>
+        <EmojiChannel />
       </div>
     );
   }
 }
 
 
-// glue to react and redux
+
 function mapStateToProps(state) {
-// Whatever is returned will show up as props inside BookList
     return {
       workspaceEmotion: state.landing
     };
