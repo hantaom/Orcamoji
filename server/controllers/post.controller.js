@@ -13,7 +13,7 @@ import sanitizeHtml from 'sanitize-html';
 var RtmClient = require('@slack/client').RtmClient;
 var RTM_EVENTS = require('@slack/client').RTM_EVENTS;
 var CLIENT_EVENTS = require('@slack/client').CLIENT_EVENTS;
-var bot_token = 'xoxb-284470865911-RDeyYFnMppEVIEWrCBd2B4A2';
+var bot_token = 'xoxp-283428601492-284256480854-284664163367-5eee6cac50c6422d4cc5575352ba5e93';
 var rtm = new RtmClient(bot_token);
 var indico = require('indico.io');
 indico.apiKey =  '5a0f61c144a48a19da1b0a6b2ee4d550';
@@ -42,7 +42,7 @@ var sampleCurrentEmotions = { anger: 0.0218894258,
                               sadness: 0.0626822487,
                               joy: 0.27961710100000003 };
 
-export var oEmotionBody = {
+var oEmotionBody = {
     "T8BCLHPEG" : [{
       "C8ARLGM33" : {
         "currentEmotion" : sampleCurrentEmotions,
@@ -83,7 +83,6 @@ function updateEmotionBody(res, message1) {
   } else {
     updateChannelEmotion(workspace, channel, res);
   }
-  
 }
 
 function updateWhenNewWorkspace(workspace, channel) {
