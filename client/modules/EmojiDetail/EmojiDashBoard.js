@@ -29,7 +29,7 @@ class EmojiDashBoard extends Component{
                     className={styles["dashEmoji"]}
                   />
                   <p className={styles["channelLabel"]}>{workspaceName}</p>
-                  <p className={styles["channelLabel"]}>{channelName}</p>
+                  <h4 className={styles["channelLabel"]}>{channelName}</h4>
                 </div>
                 )
               });

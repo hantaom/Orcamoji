@@ -16,7 +16,12 @@
 
 p.channelLabel {
   text-align: center;
+  margin-top: 15px;
 }
 img.dashEmoji {
   margin-bottom: 10px;
+}
+h4.channelLabel {
+  text-align: center;
+  color: #4D394B;
 }
