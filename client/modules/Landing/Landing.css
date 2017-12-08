@@ -1,14 +1,14 @@
 .EmojiDashboard {
     float: left;
     width: 20%;
-    background-color: #DA9898;
+    background-color: #f0f5f5;
     height: 100vh;
     overflow-y: scroll;
 }
 .EmojiChannel {
     float: right;
     width: 80%;
-    background-color: #628EDF;
+    background-color: #ffffff;
     height: 100vh;
 
 }

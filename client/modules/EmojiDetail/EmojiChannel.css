@@ -50,3 +50,8 @@
 img.side-emoji {
     max-width:15%;
 }
+
+.emptyText {
+    text-align: center;
+    color: dimgrey;
+}

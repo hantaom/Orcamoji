@@ -82,7 +82,7 @@ class EmojiChannel extends Component {
         if (!this.props.channel.emotions) {
             return (
                 <div>
-                    Nothing is selected
+                    <h1 className={styles["emptyText"]}>Please Select a Channel Before Analysis</h1>
                 </div>
             )
         }
