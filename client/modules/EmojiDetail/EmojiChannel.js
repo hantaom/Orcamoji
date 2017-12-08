@@ -97,12 +97,12 @@ class EmojiChannel extends Component {
                     </div>
                     <div className = {styles["historyAndPredictive"]}>
                         <div className={styles['history']}>
-                            <h5>History</h5>
+                            <h5 className={styles["center-text"]}>History</h5>
                             {this.renderHistory()}
                         </div>
                         <div className = {styles["space"]}></div>
                         <div className={styles['predictive']}>
-                            <h5>Predictive</h5>
+                            <h5 className={styles["center-text"]}>Predictive</h5>
                             {this.renderPredictive()}
                         </div>
                     </div>
