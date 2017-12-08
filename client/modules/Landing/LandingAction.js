@@ -14,12 +14,8 @@ export function toggleAddPost() {
 }
 
 export function fetchEmotions() {
-    const request = axios.get(`${BASE_URL}HappyFace`).then((json)=> {
-        console.log("SUCCESS FROM FETCH_EMOTIONS", json);
-    }).catch(() => {
-        console.log("ERROR FROM FETCH_EMOTIONS");
-    });
-
+    const url = `${BASE_URL}HappyFace`;
+    const request = axios.get(url);
     return {
         type: FETCH_EMOTIONS,
         payload: request

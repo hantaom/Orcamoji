@@ -13,8 +13,7 @@ import { fetchEmotions } from './LandingAction';
 export class Landing extends Component {
   constructor(props) {
     super(props);
-    this.state = { isMounted: false
-                  };
+    this.state = { isMounted: false };
   }
 
   componentDidMount() {
@@ -23,6 +22,7 @@ export class Landing extends Component {
 
   sayHello() {
     this.props.fetchEmotions();
+    console.log("after",this);
   }
 
   renderEmotion() {
@@ -58,15 +58,8 @@ function mapStateToProps(state) {
     };
 }
 
-
-// Anything returned from this function will end up as props on the BookList
-// container
 function mapDispatchToProps(dispatch) {
-    // Whenever selectBook is called, the result should be passed to all
-    // of our reducers
     return bindActionCreators({fetchEmotions}, dispatch);
 }
 
-// Promote BookList from a component to a container - it needs to know
-// about this new dispatch method, selectBook. Make it available as a prop.
 export default connect(mapStateToProps, mapDispatchToProps)(Landing);
