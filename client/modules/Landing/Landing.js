@@ -19,11 +19,27 @@ export class Landing extends Component {
 
   componentDidMount() {
     this.setState({isMounted: true}); // eslint-disable-line
+    this.props.fetchEmotions();
   }
 
-  sayHello() {
-    this.props.fetchEmotions();
-    console.log("after",this);
+  renderChannelEmoji() {
+    let workspaces = this.props.workspaceEmotion;
+    let channelEmojis = [];
+    Object.keys(workspaces).forEach((wsName)=> {
+      let workspace = workspaces[wsName];
+      Object.keys(workspace).forEach((wsName2) => {
+        let channels = workspace[wsName2];
+        channels.forEach((channel) => {
+          Object.keys(channel).forEach((channelName) => {
+            let emotions = channel[channelName]
+            channelEmojis.push(
+              <EmojiDetail current={emotions.currentEmotion} />
+            )
+          });
+        })
+      });
+    });
+    return channelEmojis;
   }
 
 
@@ -31,9 +47,10 @@ export class Landing extends Component {
   render() {
     return (
       <div>
-        <div>          
+        <div>
           <div className="landingPage">
-            <EmojiDetail channelData={ this.props }/>
+          <button onClick={()=> {this.renderChannelEmoji()}}>clickme</button>
+            {this.renderChannelEmoji()}
           </div>
         </div>
       </div>

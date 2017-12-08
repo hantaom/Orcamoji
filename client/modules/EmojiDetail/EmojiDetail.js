@@ -1,60 +1,73 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 
-import angryFace from "../../../assets/my-icons-collection/svg/010-angry.svg";
-import happyFace from "../../../assets/my-icons-collection/svg/007-happy-2.svg";
-import sadFace from "../../../assets/my-icons-collection/svg/005-sad.svg";
+import angry from "../../../assets/my-icons-collection/svg/angry.svg";
+import surprise from "../../../assets/my-icons-collection/svg/surprise.svg";
+import fear from "../../../assets/my-icons-collection/svg/fear.svg";
+import sadness from "../../../assets/my-icons-collection/svg/sadness.svg";
+import joy from "../../../assets/my-icons-collection/svg/joy.svg";
+
 import styles from '../Post/components/PostListItem/PostListItem.css';
 
 export class EmojiDetail extends Component {
 	constructor(props) {
     	super(props);
-    	this.state = { isMounted: false
-                  };
+    	this.state = { isMounted: false};
   	}
 
   	componentDidMount() {
     	this.setState({isMounted: true}); // eslint-disable-line
-    	console.log(this);
   	}
 
   	// Gets image for the main emotion from a list of current emotions
   	getMainEmotion() { 
-    	var mainEmo = 0;
-    	var mainEmoString = -1;
+    	// var mainEmo = 0;
+    	// var mainEmoString = -1;
+     //  let channels = 
+     //  let mainEmotionImage;
+     //  for (var i = 0; i<this.props.current.length; i++) {
+     //      if (parseInt(this.props.current[i]) > mainEmo) {
+     //          mainEmo = this.props.current[i];
+     //          mainEmoString = Object.keys(this.props.current[i]);
+     //      }
+     //  }
 
-    for (var i = 0; i<props.current.length; i++) {
-        if (parseInt(props.current[i]) > mainEmo) {
-            mainEmo = props.current[i];
-            mainEmoString = Object.keys(props.current[i]);
-        }
+     let currentEmotions = this.props.current;
+     let mainEmotion;
+     let emotionLevel = 0;
+     Object.keys(currentEmotions).forEach((emotion) => {
+      if (currentEmotions[emotion] > emotionLevel) {
+        mainEmotion = emotion;
+        emotionLevel = currentEmotions[emotion];
+      }
+     });
+     console.log(mainEmotion);
+     console.log(emotionLevel);
+      switch (mainEmotion) {
+      	case "angry": 
+      		return(<img src={angry} alt="angry"/>);
+      	case "surprise":
+      		return(<img src={surprise} alt="surprise"/>);
+      	case "fear":
+      		return(<img src={fear} alt="fear"/>);
+      	case "sadness":
+      		return(<img src={sadness} alt="sadness"/>);
+      	case "joy":
+      		return(<img src={joy} alt="joy"/>);
+      	default:
+      		return(<img src={joy} alt="joy"/>);
+      }
     }
-
-    switch (mainEmo) {
-    	case angry: 
-    		return <img src={angry} alt="angry">
-    	case surprise:
-    		return <img src={surprise} alt="surprise">
-    	case fear:
-    		return <img src={fear} alt="fear">
-    	case sadness:
-    		return <img src={sadness} alt="sadness">
-    	case joy:
-    		return <img src={joy} alt="joy">
-    	default:
-    		return <img src={joy} alt="joy">
-    }
-    return 0;
-  }
 
   	render () {
   		return (
-  	        <div className={styles['single-post']}>  	        
-      			getMainEmotion();
+  	      <div className={styles['single-post']}> 
+          {this.getMainEmotion()}
+          ajdfkljsadfl;asdjfl;asjfl;sajafkl;dsjflk;sadjflk;asjlk;saj 	        
       		</div>
   		);
   	}
 
 }
 
-export default connect(EmojiDetail);
+export default EmojiDetail;
