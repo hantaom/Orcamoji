@@ -2,6 +2,7 @@
 import React from 'react';
 import { Router, Route, IndexRoute } from 'react-router';
 import Landing from './modules/Landing/Landing';
+import EmojiChannel from './modules/EmojiDetail/EmojiChannel'
 
 // import App from './modules/App/App';
 
@@ -25,7 +26,7 @@ if (process.env.NODE_ENV !== 'production') {
 // react-router setup with code-splitting
 // More info: http://blog.mxstbr.com/2016/01/react-apps-with-pages/
 export default (
-  <Route path="/" component={Landing}>
+  <Route path="/" component={EmojiChannel}>
     <IndexRoute
       getComponent={(nextState, cb) => {
         require.ensure([], require => {

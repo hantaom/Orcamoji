@@ -9,6 +9,14 @@ import joy from "../../../assets/my-icons-collection/svg/joy.svg";
 
 import styles from './EmojiChannel.css';
 
+var SampleEmotion = {
+    "angry": 0.2,
+    "surprise": 0.1,
+    "fear": 0.4,
+    "sadness": 0.1,
+    "joy": 0.2
+}
+
 export class EmojiChannel extends Component {
 	constructor(props) {
     	super(props);
@@ -61,9 +69,9 @@ export class EmojiChannel extends Component {
         let history = [s1,s2,s3]
         let mainHistory = []
 
-        for (emotion in history) {
-            mainHistory.concat(this.getMainEmotion(emotion))
-        }
+        history.forEach(function(entry) {
+            mainHistory.concat(this.getMainEmotion(entry))
+        });
         return mainHistory
     }
 
@@ -92,9 +100,9 @@ export class EmojiChannel extends Component {
         let prediction = [s1,s2,s3]
         let mainPrediction = []
 
-        for (emotion in history) {
-            mainPrediction.concat(this.getMainEmotion(emotion))
-        }
+        prediction.forEach(function(entry) {
+            mainPrediction.concat(this.getMainEmotion(entry))
+        });
         return mainPrediction
     }
 
@@ -133,13 +141,24 @@ export class EmojiChannel extends Component {
             default:
                 return(<img src={joy} alt="joy"/>);
         }
-        }
+    }
 
   	render () {
   		return (
-  	      <div className={styles['mainEmoji']}> 
-            {this.getMainEmotion()} 	        
-      	  </div>
+          <div>
+            <div className={styles['channelName']}>
+                <h1>Channel Name</h1>
+                <div className={styles['otherEmotions']}>
+                    <h1>Angry: 5%</h1>
+                    <h1>Surprise: 20%</h1>
+                    <h1>Sadness: 20%</h1>
+                    <h1>joy: 10%</h1>
+                </div>
+            </div>
+  	        <div className={styles['mainEmoji']}> 
+                {this.getMainEmotion(SampleEmotion)} 	        
+      	    </div>
+          </div>
   		);
   	}
 
