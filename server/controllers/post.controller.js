@@ -63,15 +63,12 @@ var logError = function(err) {
 
 // The client will emit an RTM.AUTHENTICATED event on successful connection, with the `rtm.start` payload
 rtm.on(RTM_EVENTS.MESSAGE, function handleRtmMessage(message) {
-//  console.log('Message:', message);
-  oMessageBody = { team: message.team,
-                       channel: message.channel,
-                       text: message.text};
-  console.log(oMessageBody.text);
+  oMessageBody = {team: message.team,
+                  channel: message.channel,
+                  text: message.text};
   indico.emotion(oMessageBody.text)
     .then(response, oMessageBody)
     .catch(logError);
-  console.log(oMessageBody);
   updateEmotionBody(oCurrentEmotion, oMessageBody);
 });
 rtm.start();
@@ -89,7 +86,7 @@ function updateEmotionBody(res, message1) {
 }
 
 function updateWhenNewWorkspace(workspace, channel) {
-  oEmotionBody[workspace] = { workspace : [{ channel : { "currentEmotion" : sampleCurrentEmotions,
+  oEmotionBody[workspace] = { workspace : [{ channel : {"currentEmotion" : sampleCurrentEmotions,
                                                         "history" : oHistory,
                                                         "predictive" : oHistory }}]
                            };
