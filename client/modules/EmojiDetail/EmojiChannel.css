@@ -13,4 +13,17 @@
 }
 .predictive {
     float: right;
+    display: inline-block;
+}
+
+.historyAndPredictive{
+    height: 30%;
+    width: 100%;
+    bottom: 0;
+    position: absolute;
+    display: inline-block;
+}
+
+.side-emoji {
+    width:70%;
 }

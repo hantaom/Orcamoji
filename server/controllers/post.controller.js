@@ -19,7 +19,9 @@ var indico = require('indico.io');
 indico.apiKey =  '5a0f61c144a48a19da1b0a6b2ee4d550';
 
 var oMessageBody = {};
-
+// {
+//         "workspace" : [{"channel" : {"currentEmotion": {},"history": [{}, {}, {}],"predictive": [{}, {},{}]}}]
+//       }
 var oHistory = [{ anger: 0.0218894258,
   surprise: 0.4936410189,
   fear: 0.1421702206,
@@ -42,7 +44,7 @@ var sampleCurrentEmotions = { anger: 0.0218894258,
                               sadness: 0.0626822487,
                               joy: 0.27961710100000003 };
 
-export var oEmotionBody = {
+export let oEmotionBody = {
     "T8BCLHPEG" : [{
       "C8ARLGM33" : {
         "currentEmotion" : sampleCurrentEmotions,
@@ -56,6 +58,7 @@ var oCurrentEmotion = {};
 
 var response = function(res) {
   oCurrentEmotion = res;
+  console.log("currentEmotion", oCurrentEmotion);
 }
 var logError = function(err) {
     console.log(err);
@@ -63,17 +66,25 @@ var logError = function(err) {
 
 // The client will emit an RTM.AUTHENTICATED event on successful connection, with the `rtm.start` payload
 rtm.on(RTM_EVENTS.MESSAGE, function handleRtmMessage(message) {
-  oMessageBody = {team: message.team,
-                  channel: message.channel,
-                  text: message.text};
+//  console.log('Message:', message);
+  oMessageBody = { team: message.team,
+                       channel: message.channel,
+                       text: message.text};
+  // console.log(oMessageBody.text);
   indico.emotion(oMessageBody.text)
-    .then(response, oMessageBody)
+    .then((response) => {
+      oCurrentEmotion = response;
+      updateEmotionBody(oCurrentEmotion, oMessageBody);
+      console.log("oCurrentEmotion", oCurrentEmotion);
+
+    })
     .catch(logError);
-  updateEmotionBody(oCurrentEmotion, oMessageBody);
+  // updateEmotionBody(oCurrentEmotion, oMessageBody);
 });
 rtm.start();
 
 function updateEmotionBody(res, message1) {
+  console.log("updateEmotionBody res", res);
   var workspace = message1.team;
   var channel = message1.channel;
   if (!(workspace in oEmotionBody)) {
@@ -83,22 +94,34 @@ function updateEmotionBody(res, message1) {
   } else {
     updateChannelEmotion(workspace, channel, res);
   }
-  
 }
 
 function updateWhenNewWorkspace(workspace, channel) {
-  oEmotionBody[workspace] = { workspace : [{ channel : {"currentEmotion" : sampleCurrentEmotions,
+  oEmotionBody[workspace] = { workspace : [{ channel : { "currentEmotion" : sampleCurrentEmotions,
                                                         "history" : oHistory,
                                                         "predictive" : oHistory }}]
                            };
 }
 
 function isChannelIncluded(workspace, channel) {
+  // let channels = oEmotionBody[workspace];
+  // let hasChannel = channels.find((chan) => {
+  //   let channelName = Object.keys(chan)[0];
+  //   if (channel === channelName) {
+  //     return true;
+  //   }
+  //   return false;
+  // });
+  // return hasChannel;
   let channels = oEmotionBody[workspace];
   for(var i = 0; i < channels.length; i++){
+    // console.log("isChannelIncluded",Object.keys(channels[i])[0]);
     let channelString = Object.keys(channels[i])[0];
     if(channelString === channel) {
+      // console.log("isChannelIncluded if statement passed", channels[i]);
       return channels[i];
+    } else {
+      // console.log("isChannelIncluded if statement failed");
     }
   }
   return null;
@@ -106,19 +129,40 @@ function isChannelIncluded(workspace, channel) {
 
 
 function updateWhenNewChannel(workspace, channel) {
+  // console.log("CHANNEL", oEmotionBody[workspace]);
   let newChannel = {};
   newChannel[channel] = { "currentEmotion" : sampleCurrentEmotions,
-                          "history" : oHistory,
-                          "predictive" : oHistory };
+              "history" : oHistory,
+              "predictive" : oHistory };
   oEmotionBody[workspace].push(newChannel);
+  // console.log("HERE ****", oEmotionBody);
 }
+
+// updateChannelEmotion { D8C7X5L0N:
+//    { currentEmotion:
+//       { anger: 0.0218894258,
+//         surprise: 0.4936410189,
+//         fear: 0.1421702206,
+//         sadness: 0.0626822487,
+//         joy: 0.27961710100000003 },
+//      history: [ [Object], [Object], [Object] ],
+//      predictive: [ [Object], [Object], [Object] ] } }
+
 
 function updateChannelEmotion(workspace, channel, res) {
   let currentChannel = isChannelIncluded(workspace, channel);
   let previousCurrentEmotion = currentChannel[channel].currentEmotion;
+  // console.log("previous current emotions",previousCurrentEmotion);
   let emotionHistory = currentChannel[channel].history;
-  currentChannel[channel].history = [previousCurrentEmotion, emotionHistory[0], emotionHistory[1]];
   currentChannel[channel].currentEmotion = res;
+  // console.log("res",res);
+  currentChannel[channel].history = [previousCurrentEmotion, emotionHistory[0], emotionHistory[1]];
+  console.log("updated current emotions",currentChannel[channel].currentEmotion);
+  console.log("history",currentChannel[channel].history);
+
+  // console.log("after updateChannelEmotion completes", oEmotionBody);
+  // console.log("after updateChannelEmotion completes channels currentEmotion", oEmotionBody[workspace][0]);
+  // console.log("after updateChannelEmotion completes channels history", oEmotionBody[workspace][0][channel]);
 }
 
 export function getPosts(req, res) {

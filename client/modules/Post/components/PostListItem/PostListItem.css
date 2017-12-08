@@ -1,11 +1,14 @@
 .single-post {
-  margin: 1.5%;
+  margin: 10%;
   padding: 15px;
   border-radius: 15px;
-  width: 30%;
+  width: 80%;
   float: left;
   background: #F9F9F9;  
+  overflow: hidden;
+  font-size: small;
 }
+
 h3.channelLabel {
   text-align: center;
 }
