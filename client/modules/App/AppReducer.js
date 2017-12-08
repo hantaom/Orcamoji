@@ -11,6 +11,7 @@ const AppReducer = (state = initialState, action) => {
     case TOGGLE_ADD_POST:
       return {
         showAddPost: !state.showAddPost,
+        test: "hellooooooooooo"
       };
 
     default:

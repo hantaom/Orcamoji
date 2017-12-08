@@ -1,5 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
+import { Router, Route, Link, IndexRoute, hashHistory, browserHistory } from 'react-router'
 
 // Import Style
 import styles from './App.css';
@@ -31,6 +32,7 @@ export class App extends Component {
   render() {
     return (
       <div>
+      Hello WROLALSDJSADLASHD
         {this.state.isMounted && !window.devToolsExtension && process.env.NODE_ENV === 'development' && <DevTools />}
         <div>
           <Helmet
@@ -55,6 +57,9 @@ export class App extends Component {
           />
           <div className={styles.container}>
             {this.props.children}
+          </div>
+          <div>
+            <Link to='/HappyFace'>Smile!</Link>
           </div>
           <Footer />
         </div>

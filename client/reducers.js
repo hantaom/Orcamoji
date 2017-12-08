@@ -4,6 +4,7 @@
 import { combineReducers } from 'redux';
 
 // Import Reducers
+import landing from './modules/Landing/LandingReducer';
 import app from './modules/App/AppReducer';
 import posts from './modules/Post/PostReducer';
 import intl from './modules/Intl/IntlReducer';
@@ -13,4 +14,5 @@ export default combineReducers({
   app,
   posts,
   intl,
+  landing
 });
