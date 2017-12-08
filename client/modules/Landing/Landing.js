@@ -5,7 +5,6 @@ import { Provider } from 'react-redux';
 import EmojiDetail from "../EmojiDetail/EmojiDetail";
 import EmojiDashBoard from "../EmojiDetail/EmojiDashBoard";
 import EmojiChannel from "../EmojiDetail/EmojiChannel";
-import { BrowserRouter, Route, Switch} from 'react-router-dom';
 // Import Style
 // import styles from './App.css';
 
@@ -28,8 +27,14 @@ export class Landing extends Component {
   render() {
     return (
       <div className="landingPage">
+        <header>
+            <h1>O R C A M O J I</h1>
+        </header>
         <EmojiDashBoard workspaces={this.props.workspaceEmotion}/>
         <EmojiChannel />
+        <footer>
+            <p>Team Orcamoji &copy;</p>
+        </footer>
       </div>
     );
   }
