@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
+import EmojiDetail from "../EmojiDetail/EmojiDetail"
 // Import Style
 // import styles from './App.css';
 
@@ -27,23 +28,14 @@ export class Landing extends Component {
     console.log(this);
   }
 
-  renderEmotion() {
-    let currentEmotion = this.props.currentEmotion;
-    if (!currentEmotion) 
-    return(
-      <div>
 
-      </div>
-    )
-  }
 
   render() {
     return (
       <div>
-        <div>
-          <button onClick={()=>{this.sayHello()}}>Click</button>
-          <div className="Dennis">
-            {this.renderEmotion()}
+        <div>          
+          <div className="landingPage">
+            <EmojiDetail channelData={ this.props }/>
           </div>
         </div>
       </div>
