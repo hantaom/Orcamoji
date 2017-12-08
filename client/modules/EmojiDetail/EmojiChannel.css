@@ -10,5 +10,27 @@
     float: right;
 }
 .history {
-    float: left;
+    // float: left;
+    display: inline-block;
+}
+
+.predictive {
+    // float: left;
+    display: inline-block;
+}
+
+.predictive {
+    display: inline-block;
+}
+
+.historyAndPredictive{
+    height: 30%;
+    width: 100%;
+    bottom: 0;
+    position: absolute;
+    display: inline-block;
+}
+
+.side-emoji {
+    width:70%;
 }

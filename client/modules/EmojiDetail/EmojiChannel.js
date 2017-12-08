@@ -21,10 +21,12 @@ class EmojiChannel extends Component {
 
         history.forEach((histObjEmotion)=> {
             renderLists.push(
-                <EmojiDetail emotions={histObjEmotion}
-                    workspace={workspace}
-                    channel={channel}
-                />
+                <div className={styles["side-emoji"]}>
+                    <EmojiDetail emotions={histObjEmotion}
+                        workspace={workspace}
+                        channel={channel}
+                    />
+                </div>
             )
         });
         return renderLists;
@@ -38,10 +40,13 @@ class EmojiChannel extends Component {
 
         predictive.forEach((predObjEmotion)=> {
             renderLists.push(
-                <EmojiDetail emotions={predObjEmotion}
-                    workspace={workspace}
-                    channel={channel}
-                />
+                <div className={styles["side-emoji"]}>
+                    <EmojiDetail emotions={predObjEmotion}
+                        workspace={workspace}
+                        channel={channel}
+                        className={styles["side-emoji"]}
+                    />
+                </div>
             )
         });
         return renderLists;
@@ -72,13 +77,15 @@ class EmojiChannel extends Component {
                         channel={this.props.channel.channelName}
                     />
                 </div>
-                <div className={styles['history']}>
-                    <h3>History</h3>
-                    {this.renderHistory()}
-                </div>
-                <div className="predictive">
-                    <h3>Predictive</h3>
-                    {this.renderPredictive()}
+                <div className = {styles["historyAndPredictive"]}>
+                    <div className={styles['history']}>
+                        <h3>History</h3>
+                        {this.renderHistory()}
+                    </div>
+                    <div className={styles['predictive']}>
+                        <h3>Predictive</h3>
+                        {this.renderPredictive()}
+                    </div>
                 </div>
             </div>
         )
