@@ -33,9 +33,7 @@ export class Landing extends Component {
         </header>
         <div className={styles['EmojiDashboard']}><EmojiDashBoard workspaces={this.props.workspaceEmotion}/></div>
         <div className={styles['EmojiChannel']}><EmojiChannel /></div>
-        <footer>
-            <p>Team Orcamoji &copy;</p>
-        </footer>
+
       </div>
     );
   }
