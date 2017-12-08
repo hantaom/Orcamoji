@@ -44,7 +44,7 @@ var sampleCurrentEmotions = { anger: 0.0218894258,
                               sadness: 0.0626822487,
                               joy: 0.27961710100000003 };
 
-var oEmotionBody = {
+export var oEmotionBody = {
     "T8BCLHPEG" : [{
       "C8ARLGM33" : {
         "currentEmotion" : sampleCurrentEmotions,
@@ -90,6 +90,7 @@ function updateEmotionBody(res, message1) {
     console.log("passing in channel in update function", channel);
     updateChannelEmotion(workspace, channel, res);
   }
+  
 }
 
 function updateWhenNewWorkspace(workspace, channel) {
