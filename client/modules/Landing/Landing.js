@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-
-import EmojiDetail from "../EmojiDetail/EmojiDetail"
+import { Provider } from 'react-redux';
+import EmojiDetail from "../EmojiDetail/EmojiDetail";
+import EmojiDashBoard from "../EmojiDetail/EmojiDashBoard";
+import EmojiChannel from "../EmojiDetail/EmojiChannel";
 // Import Style
 // import styles from './App.css';
 
@@ -22,46 +24,25 @@ export class Landing extends Component {
     this.props.fetchEmotions();
   }
 
-  renderChannelEmoji() {
-    let workspaces = this.props.workspaceEmotion;
-    let channelEmojis = [];
-    Object.keys(workspaces).forEach((wsName)=> {
-      let workspace = workspaces[wsName];
-      Object.keys(workspace).forEach((wsName2) => {
-        let channels = workspace[wsName2];
-        channels.forEach((channel) => {
-          Object.keys(channel).forEach((channelName) => {
-            let emotions = channel[channelName]
-            channelEmojis.push(
-              <EmojiDetail current={emotions.currentEmotion} />
-            )
-          });
-        })
-      });
-    });
-    return channelEmojis;
-  }
-
-
-
   render() {
     return (
-      <div>
-        <div>
-          <div className="landingPage">
-          <button onClick={()=> {this.renderChannelEmoji()}}>clickme</button>
-            {this.renderChannelEmoji()}
-          </div>
-        </div>
+      <div className="landingPage">
+        <header>
+            <h1>O R C A M O J I</h1>
+        </header>
+        <EmojiDashBoard workspaces={this.props.workspaceEmotion}/>
+        <EmojiChannel />
+        <footer>
+            <p>Team Orcamoji &copy;</p>
+        </footer>
       </div>
     );
   }
 }
 
 
-// glue to react and redux
+
 function mapStateToProps(state) {
-// Whatever is returned will show up as props inside BookList
     return {
       workspaceEmotion: state.landing
     };

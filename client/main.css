@@ -8,6 +8,8 @@
 	-moz-box-sizing: border-box;
 	box-sizing: border-box;
 	line-height: normal;
+	font-family: Helvetica, sans-serif;
+	color: #261C25;
 }
 
 ::-webkit-input-placeholder {
@@ -26,13 +28,29 @@ input:-moz-placeholder {
 	color:#aaa;
 	font-weight: 300;
 }
-
+html {
+	min-height: 100%;
+}
 body {
 	background: #FFF;
 	font-family: 'Lato', sans-serif;
 	font-size: 16px;
 }
-
-landingpage {
-	
+header {	
+	background: #4D394B;	
+}
+footer {
+	background: #4D394B;	
+	width: 100%;	
+	position: absolute;
+	bottom: 0;
+}
+footer p {
+	text-align: center;
+	padding: 5px 0;	
+	color: white;
+}
+h1 {
+	padding: 5px 20px;
+	color: white;
 }
