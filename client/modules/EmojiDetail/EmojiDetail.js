@@ -7,7 +7,7 @@ import fear from "../../../assets/my-icons-collection/svg/fear.svg";
 import sadness from "../../../assets/my-icons-collection/svg/sadness.svg";
 import joy from "../../../assets/my-icons-collection/svg/joy.svg";
 
-import styles from '../Post/components/PostListItem/PostListItem.css';
+// import styles from '../Post/components/PostListItem/PostListItem.css';
 
 export class EmojiDetail extends Component {
 	constructor(props) {
@@ -33,26 +33,24 @@ export class EmojiDetail extends Component {
      });
       switch (mainEmotion) {
       	case "angry": 
-      		return(<img className={styles['dashEmoji']} src={angry} alt="angry"/>);
+      		return(<img src={angry} alt="angry"/>);
       	case "surprise":
-      		return(<img className={styles['dashEmoji']} src={surprise} alt="surprise"/>);
+      		return(<img src={surprise} alt="surprise"/>);
       	case "fear":
-      		return(<img className={styles['dashEmoji']} src={fear} alt="fear"/>);
+      		return(<img src={fear} alt="fear"/>);
       	case "sadness":
-      		return(<img className={styles['dashEmoji']} src={sadness} alt="sadness"/>);
+      		return(<img src={sadness} alt="sadness"/>);
       	case "joy":
-      		return(<img className={styles['dashEmoji']} src={joy} alt="joy"/>);
+      		return(<img src={joy} alt="joy"/>);
       	default:
-      		return(<img className={styles['dashEmoji']} src={joy} alt="joy"/>);
+      		return(<img src={joy} alt="joy"/>);
       }
     }
 
   	render () {
   		return (
-  	      <div className={styles['single-post']}> 
+  	      <div > 
             {this.getMainEmotion()}
-            <h3 className={styles['channelLabel']}>Workspace: {this.props.workspace}</h3>
-            <h3 className={styles['channelLabel']}>Channel: {this.props.channel}</h3>
       		</div>
   		);
   	}

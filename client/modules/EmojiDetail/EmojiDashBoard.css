@@ -2,3 +2,21 @@
     width: 30%;
     
 }
+
+.single-post {
+  margin: 10%;
+  padding: 15px;
+  border-radius: 15px;
+  width: 80%;
+  float: left;
+  background: #F9F9F9;  
+  overflow: hidden;
+  font-size: small;
+}
+
+p.channelLabel {
+  text-align: center;
+}
+img.dashEmoji {
+  margin-bottom: 10px;
+}

@@ -6,16 +6,27 @@
     font-size: 30px;
 }
 .otherEmotions {
-    font-size: 15px;
+    font-size: 12px;
     float: right;
+    margin-right: 5%;
+    border-radius: 15px;
+    background: #F9F9F9;
+}
+.channelTitle {
+    text-align: center;
+}
+.otherEmotionsText {
+    margin: 9px;
 }
 .history {
+    width:50%;
     // float: left;
     display: inline-block;
 }
 
 .predictive {
     // float: left;
+    width:50%;
     display: inline-block;
 }
 
@@ -28,9 +39,10 @@
     width: 100%;
     bottom: 0;
     position: absolute;
-    display: inline-block;
+    // display: inline-block;
+    display: flex;
 }
 
-.side-emoji {
-    width:70%;
+img.side-emoji {
+    max-width:15%;
 }

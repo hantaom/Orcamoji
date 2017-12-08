@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import EmojiDetail from './EmojiDetail';
 import { bindActionCreators } from 'redux';
 import { selectChannel } from './EmojiActions';
+import styles from './EmojiDashBoard.css';
 
 
 class EmojiDashBoard extends Component{
@@ -20,11 +21,15 @@ class EmojiDashBoard extends Component{
               Object.keys(channel).forEach((channelName) => {
                 let emotions = channel[channelName];
                 channelEmojis.push(
-                <div key= {channelName} onClick={()=> this.props.selectChannel(emotions, workspaceName, channelName)}>
+                <div key= {channelName} 
+                onClick={()=> this.props.selectChannel(emotions, workspaceName, channelName)}
+                className={styles["single-post"]}
+                >
                   <EmojiDetail emotions={emotions.currentEmotion}
-                    workspace={workspaceName}
-                    channel={channelName}
+                    className={styles["dashEmoji"]}
                   />
+                  <p className={styles["channelLabel"]}>{workspaceName}</p>
+                  <p className={styles["channelLabel"]}>{channelName}</p>
                 </div>
                 )
               });
