@@ -1,7 +1,7 @@
 .EmojiDashboard {
     float: left;
     width: 20%;
-    background-color: #e6e6e6;
+    background-color: white;
     height: 100vh;
     overflow-y: scroll;
 }
