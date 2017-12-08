@@ -1,4 +1,4 @@
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import angry from "../../../assets/my-icons-collection/svg/angry.svg";
@@ -21,18 +21,8 @@ export class EmojiDetail extends Component {
 
   	// Gets image for the main emotion from a list of current emotions
   	getMainEmotion() { 
-    	// var mainEmo = 0;
-    	// var mainEmoString = -1;
-     //  let channels = 
-     //  let mainEmotionImage;
-     //  for (var i = 0; i<this.props.current.length; i++) {
-     //      if (parseInt(this.props.current[i]) > mainEmo) {
-     //          mainEmo = this.props.current[i];
-     //          mainEmoString = Object.keys(this.props.current[i]);
-     //      }
-     //  }
 
-     let currentEmotions = this.props.current;
+     let currentEmotions = this.props.emotions;
      let mainEmotion;
      let emotionLevel = 0;
      Object.keys(currentEmotions).forEach((emotion) => {
@@ -41,8 +31,6 @@ export class EmojiDetail extends Component {
         emotionLevel = currentEmotions[emotion];
       }
      });
-     console.log(mainEmotion);
-     console.log(emotionLevel);
       switch (mainEmotion) {
       	case "angry": 
       		return(<img src={angry} alt="angry"/>);
@@ -63,7 +51,8 @@ export class EmojiDetail extends Component {
   		return (
   	      <div className={styles['single-post']}> 
           {this.getMainEmotion()}
-          ajdfkljsadfl;asdjfl;asjfl;sajafkl;dsjflk;sadjflk;asjlk;saj 	        
+          <h3>Workspace: {this.props.workspace}</h3>
+          <h3>Channel:{this.props.channel}</h3>
       		</div>
   		);
   	}
