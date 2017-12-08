@@ -6,14 +6,17 @@ import { render } from 'react-dom';
 import { AppContainer } from 'react-hot-loader';
 import App from './App';
 import { configureStore } from './store';
-
+import { createStore, applyMiddleware } from 'redux';
+import ReduxPromise from 'redux-promise';
+import reducers from './reducers';
 // Initialize store
 const store = configureStore(window.__INITIAL_STATE__);
 const mountApp = document.getElementById('root');
+const createStoreWithMiddleware = applyMiddleware(ReduxPromise)(createStore);
 
 render(
   <AppContainer>
-    <App store={store} />
+    <App store={createStoreWithMiddleware(reducers)} />
   </AppContainer>,
   mountApp
 );
