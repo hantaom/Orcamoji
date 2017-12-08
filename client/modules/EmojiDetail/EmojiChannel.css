@@ -8,6 +8,7 @@
 .otherEmotions {
     font-size: 15px;
     float: right;
-    position: relative;
-    top: 0px;
+}
+.history {
+    float: left;
 }

@@ -57,13 +57,22 @@ class EmojiChannel extends Component {
         }
         return (
             <div>
+                <div>
+                    <div>Channel Title</div>
+                    <div className={styles['otherEmotions']}>
+                        <h2>Angry: 10%</h2>
+                        <h2>Sad: 10%</h2>
+                        <h2>Sad: 10%</h2>
+                        <h2>Sad: 10%</h2>
+                    </div>
+                </div>
                 <div className="currentEmotion">
                     <EmojiDetail emotions={this.props.channel.emotions && this.props.channel.emotions.currentEmotion}
                         workspace={this.props.channel.workspace}
                         channel={this.props.channel.channelName}
                     />
                 </div>
-                <div className="history">
+                <div className={styles['history']}>
                     <h3>History</h3>
                     {this.renderHistory()}
                 </div>
