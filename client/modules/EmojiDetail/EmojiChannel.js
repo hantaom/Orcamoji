@@ -72,13 +72,15 @@ class EmojiChannel extends Component {
                         channel={this.props.channel.channelName}
                     />
                 </div>
-                <div className={styles['history']}>
+                <div>
+                    <div className={styles['history']}>
                     <h3>History</h3>
-                    {this.renderHistory()}
-                </div>
-                <div className="predictive">
-                    <h3>Predictive</h3>
+                    {   this.renderHistory()}
+                    </div>
+                    <div className={styles['predictive']}>
+                        <h3>Predictive</h3>
                     {this.renderPredictive()}
+                    </div>
                 </div>
             </div>
         )

@@ -1,6 +1,4 @@
 .mainEmoji {
-    margin: auto;
-    width: 35%;
 }
 .channelName {
     font-size: 30px;
@@ -11,4 +9,8 @@
 }
 .history {
     float: left;
+    width: 200px;
+}
+.predictive {
+    float: right;
 }
