@@ -9,7 +9,7 @@ import joy from "../../../assets/my-icons-collection/svg/joy.svg";
 
 import styles from './EmojiChannel.css';
 
-export class EmojiDetail extends Component {
+export class EmojiChannel extends Component {
 	constructor(props) {
     	super(props);
     	this.state = { isMounted: false};
@@ -145,4 +145,4 @@ export class EmojiDetail extends Component {
 
 }
 
-export default EmojiDetail;
+export default EmojiChannel;
