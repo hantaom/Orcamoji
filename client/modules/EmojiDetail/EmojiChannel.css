@@ -1,29 +1,52 @@
 .mainEmoji {
+    width: 60%;
+    padding-left: 280px;
+    padding-top: 70px;
+    position: absolute;
+    bottom: 0;
 }
 .channelName {
     font-size: 30px;
 }
 .otherEmotions {
-    font-size: 15px;
+    font-size: 12px;
     float: right;
+    margin-right: 5%;
+    border-radius: 15px;
+    background: #F9F9F9;
+}
+.channelTitle {
+    text-align: center;
+}
+.otherEmotionsText {
+    margin: 9px;
 }
 .history {
+    width:15%;
     float: left;
-    width: 200px;
-}
-.predictive {
-    float: right;
     display: inline-block;
+    bottom: 0;
+}
+
+.predictive {
+    width:15%;
+    float: left;
+    display: inline-block;
+    bottom: 0;
 }
 
 .historyAndPredictive{
+    padding-top: 30px;
     height: 30%;
     width: 100%;
     bottom: 0;
-    position: absolute;
-    display: inline-block;
+    display: flex;
+    padding-left: 30px;
+}
+.space {
+    width: 860px;
 }
 
-.side-emoji {
-    width:70%;
+img.side-emoji {
+    max-width:15%;
 }

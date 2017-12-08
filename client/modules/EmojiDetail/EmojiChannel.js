@@ -21,10 +21,11 @@ class EmojiChannel extends Component {
 
         history.forEach((histObjEmotion)=> {
             renderLists.push(
-                <div className={styles["side-emoji"]}>
+                <div>
                     <EmojiDetail emotions={histObjEmotion}
                         workspace={workspace}
                         channel={channel}
+                        className={styles["side-emoji"]}
                     />
                 </div>
             )
@@ -40,7 +41,7 @@ class EmojiChannel extends Component {
 
         predictive.forEach((predObjEmotion)=> {
             renderLists.push(
-                <div className={styles["side-emoji"]}>
+                <div>
                     <EmojiDetail emotions={predObjEmotion}
                         workspace={workspace}
                         channel={channel}
@@ -52,6 +53,31 @@ class EmojiChannel extends Component {
         return renderLists;
     }
 
+    getCurrentData(emotions) {
+        if (!emotions || !emotions.currentEmotion) {
+            return (
+                <div>No Data available</div>
+            )
+        }
+        let currentEmotion = emotions.currentEmotion;
+        let emotionsKeys = Object.keys(currentEmotion);
+
+        let a = emotionsKeys.map((key) => {
+            let roughValue = currentEmotion[key];
+            roughValue *= 100;
+            let value = roughValue.toFixed(2);
+            return(
+                <h5 className={styles["otherEmotionsText"]}>{key} : {value}%</h5>
+            )
+        });
+        return a;
+        
+    }
+// <h5>{this.getAngryFromHistory(this.props.channel.emotions)}</h5>
+                            // <h5>Sad: 10%</h5>
+                            // <h5>Sad: 10%</h5>
+                            // <h5>Sad: 10%</h5>
+                            // <h5>Sad: 10%</h5>
    renderSummary() {
         if (!this.props.channel.emotions) {
             return (
@@ -62,29 +88,29 @@ class EmojiChannel extends Component {
         }
         return (
             <div>
-                <div>
-                    <div>Channel Title</div>
-                    <div className={styles['otherEmotions']}>
-                        <h2>Angry: 10%</h2>
-                        <h2>Sad: 10%</h2>
-                        <h2>Sad: 10%</h2>
-                        <h2>Sad: 10%</h2>
+                <div className="currentEmotionWrapper">
+                    <div>
+                        <h4 className={styles['channelTitle']}>{this.props.channel.channelName}</h4>
+                        <div className={styles['otherEmotions'] + ' .col-sm-8' }>
+                            {this.getCurrentData(this.props.channel.emotions)}
+                        </div>
                     </div>
-                </div>
-                <div className="currentEmotion">
-                    <EmojiDetail emotions={this.props.channel.emotions && this.props.channel.emotions.currentEmotion}
-                        workspace={this.props.channel.workspace}
-                        channel={this.props.channel.channelName}
-                    />
-                </div>
-                <div className = {styles["historyAndPredictive"]}>
-                    <div className={styles['history']}>
-                        <h3>History</h3>
-                        {this.renderHistory()}
+                    <div className = {styles["historyAndPredictive"]}>
+                        <div className={styles['history']}>
+                            <h5>History</h5>
+                            {this.renderHistory()}
+                        </div>
+                        <div className = {styles["space"]}></div>
+                        <div className={styles['predictive']}>
+                            <h5>Predictive</h5>
+                            {this.renderPredictive()}
+                        </div>
                     </div>
-                    <div className={styles['predictive']}>
-                        <h3>Predictive</h3>
-                        {this.renderPredictive()}
+                    <div className={styles['mainEmoji']}>
+                        <EmojiDetail emotions={this.props.channel.emotions && this.props.channel.emotions.currentEmotion}
+                            workspace={this.props.channel.workspace}
+                            channel={this.props.channel.channelName}
+                        />
                     </div>
                 </div>
             </div>
@@ -93,7 +119,7 @@ class EmojiChannel extends Component {
 
   	render () {
   		return (
-  	      <div className={styles['mainEmoji']}> 
+  	      <div> 
             {this.renderSummary()}
       	  </div>
   		);

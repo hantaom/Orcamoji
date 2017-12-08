@@ -1,17 +1,17 @@
 .single-post {
-  margin: 10%;
-  padding: 15px;
-  border-radius: 15px;
-  width: 80%;
-  float: left;
-  background: #F9F9F9;  
-  overflow: hidden;
-  font-size: small;
+  // margin: 10%;
+  // padding: 15px;
+  // border-radius: 15px;
+  // width: 80%;
+  // float: left;
+  // background: #F9F9F9;  
+  // overflow: hidden;
+  // font-size: small;
 }
 
 h3.channelLabel {
-  text-align: center;
+  // text-align: center;
 }
 img.dashEmoji {
-  margin-bottom: 10px;
+  // margin-bottom: 10px;
 }
