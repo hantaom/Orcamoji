@@ -93,15 +93,6 @@ function updateWhenNewWorkspace(workspace, channel) {
 }
 
 function isChannelIncluded(workspace, channel) {
-  // let channels = oEmotionBody[workspace];
-  // let hasChannel = channels.find((chan) => {
-  //   let channelName = Object.keys(chan)[0];
-  //   if (channel === channelName) {
-  //     return true;
-  //   }
-  //   return false;
-  // });
-  // return hasChannel;
   let channels = oEmotionBody[workspace];
   for(var i = 0; i < channels.length; i++){
     let channelString = Object.keys(channels[i])[0];
@@ -116,8 +107,8 @@ function isChannelIncluded(workspace, channel) {
 function updateWhenNewChannel(workspace, channel) {
   let newChannel = {};
   newChannel[channel] = { "currentEmotion" : sampleCurrentEmotions,
-              "history" : oHistory,
-              "predictive" : oHistory };
+                          "history" : oHistory,
+                          "predictive" : oHistory };
   oEmotionBody[workspace].push(newChannel);
 }
 
